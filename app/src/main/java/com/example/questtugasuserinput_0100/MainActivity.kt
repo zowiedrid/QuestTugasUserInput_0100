@@ -18,30 +18,20 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            QuestTugasUserInput_0100Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                QuestTugasUserInput_0100Theme {
+                    Tugas4()
                 }
             }
         }
     }
-}
 
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
+
+
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     QuestTugasUserInput_0100Theme {
-        Greeting("Android")
+        Tugas4()
     }
 }
