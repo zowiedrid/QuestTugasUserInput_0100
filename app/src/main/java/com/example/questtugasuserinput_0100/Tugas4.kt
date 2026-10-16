@@ -18,7 +18,14 @@ import com.example.questtugasuserinput_0100.ui.theme.QuestTugasUserInput_0100The
 fun Tugas4() {
     Scaffold (
         modifier = Modifier.fillMaxSize()
-    ) { paddingValues ->
+    ){paddingValues ->
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues)
+            .background(colorResource(id = R.color.yellow)),
+    ){
+
     }
 }
 
