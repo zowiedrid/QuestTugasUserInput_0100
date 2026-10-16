@@ -14,6 +14,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Checkbox
+import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuAnchorType
@@ -220,6 +222,50 @@ fun Tugas4() {
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(id = R.string.pilih_skill),
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.fillMaxWidth(),
+                        fontSize = 16.sp
+                    )
+
+                    Spacer(modifier = Modifier.height(8.dp))
+
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceBetween,
+                        verticalAlignment = Alignment.CenterVertically
+                    ) {
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = skillMemasak,
+                                onCheckedChange = { skillMemasak = it },
+                                colors = CheckboxDefaults.colors(checkedColor = colorResource(id = R.color.lph_red))
+                            )
+                            Text(text = stringResource(id = R.string.skill_android), fontSize = 12.sp)
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = skillPelayanan,
+                                onCheckedChange = { skillPelayanan = it },
+                                colors = CheckboxDefaults.colors(checkedColor = colorResource(id = R.color.lph_red))
+                            )
+                            Text(text = stringResource(id = R.string.skill_ui_ux), fontSize = 12.sp)
+                        }
+                        Row(verticalAlignment = Alignment.CenterVertically) {
+                            Checkbox(
+                                checked = skillLogistik,
+                                onCheckedChange = { skillLogistik = it },
+                                colors = CheckboxDefaults.colors(checkedColor = colorResource(id = R.color.lph_red))
+                            )
+                            Text(text = stringResource(id = R.string.skill_web), fontSize = 12.sp)
+                        }
+                    }
+
+                    Spacer(modifier = Modifier.weight(1f))
+
 
                 }
             }
