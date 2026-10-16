@@ -18,6 +18,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.Text
+import androidx.compose.material3.rememberDatePickerState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -30,6 +31,7 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringArrayResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -51,6 +53,20 @@ fun Tugas4() {
     var namaDepan by remember { mutableStateOf("") }
     var namaBelakang by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
+    var tglLahir by remember { mutableStateOf("") }
+    var experience by remember { mutableStateOf("") }
+
+    var skillMemasak by remember { mutableStateOf(false) }
+    var skillPelayanan by remember { mutableStateOf(false) }
+    var skillLogistik by remember { mutableStateOf(false) }
+
+    // State for Date Picker
+    var showDatePicker by remember { mutableStateOf(false) }
+    val datePickerState = rememberDatePickerState()
+
+    // State for Dropdown
+    var expanded by remember { mutableStateOf(false) }
+    val experienceOptions = stringArrayResource(id = R.array.experience_options).toList()
 
 
     Scaffold (
