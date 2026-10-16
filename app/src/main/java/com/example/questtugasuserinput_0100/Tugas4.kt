@@ -3,6 +3,7 @@ package com.example.questtugasuserinput_0100
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -67,21 +68,28 @@ fun Tugas4() {
                     .clip(RoundedCornerShape(32.dp))
                     .background(colorResource(id = R.color.light_gray))
             ) {
-                Text(
-                    text = stringResource(id = R.string.form_biodata),
-                    color = colorResource(id = R.color.lph_red),
-                    fontSize = 28.sp,
-                    fontWeight = FontWeight.ExtraBold,
-                    modifier = Modifier.padding(bottom = 8.dp)
-                )
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(24.dp),
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        text = stringResource(id = R.string.form_biodata),
+                        color = colorResource(id = R.color.lph_red),
+                        fontSize = 28.sp,
+                        fontWeight = FontWeight.ExtraBold,
+                        modifier = Modifier.padding(bottom = 8.dp)
+                    )
 
-                Text(
-                    text = stringResource(id = R.string.subtitle_biodata),
-                    color = colorResource(id = R.color.lph_blue),
-                    fontSize = 14.sp,
-                    fontWeight = FontWeight.Bold,
-                    modifier = Modifier.padding(bottom = 24.dp)
-                )
+                    Text(
+                        text = stringResource(id = R.string.subtitle_biodata),
+                        color = colorResource(id = R.color.lph_blue),
+                        fontSize = 14.sp,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.padding(bottom = 24.dp)
+                    )
+                }
             }
         }
     }
