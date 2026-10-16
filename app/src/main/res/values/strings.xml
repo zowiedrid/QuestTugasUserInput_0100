@@ -1,3 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">QuestTugasUserInput_0100</string>
+    <string name="app_name">pertemuan5</string>
+    <string name="submit">Submit</string>
+    <string name="form_biodata">Form Biodata</string>
+    <string name="subtitle_biodata">Silahkan isi biodata Anda dibawah ini !!!</string>
+    <string name="nama_depan">Nama Depan</string>
+    <string name="nama_belakang">Nama Belakang</string>
+    <string name="email">Email</string>
+    <string name="tgl_lahir">Tgl Lahir</string>
+    <string name="experience">Experience</string>
+    <string name="pilih_skill">Pilih Skill Anda :</string>
+    <string name="skill_android">Memasak</string>
+    <string name="skill_ui_ux">Pelayanan</string>
+    <string name="skill_web">Logistik</string>
+    <string name="proceed">Proceed</string>
 </resources>
