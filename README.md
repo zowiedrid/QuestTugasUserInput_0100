@@ -5,8 +5,8 @@
 Berikut adalah tampilan aplikasi saat dijalankan:
 
 *(Tampilan Form Kosong / Saat Diisi)*
-![Screenshot Form](Screenshot%202026-10-17%20at%2002.00.55.png)
+![Screenshot Form](ss_form.png)
 
 *(Tampilan Snackbar setelah tombol Submit ditekan)*
-![Screenshot Snackbar](Screenshot%202026-10-17%20at%2002.01.04.png)
+![Screenshot Snackbar](ss_snackbar.png)
 
