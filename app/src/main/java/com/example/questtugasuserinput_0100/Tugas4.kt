@@ -15,6 +15,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Checkbox
 import androidx.compose.material3.CheckboxDefaults
 import androidx.compose.material3.DatePicker
@@ -28,6 +29,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Snackbar
+import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
@@ -53,6 +55,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.questtugasuserinput_0100.ui.theme.QuestTugasUserInput_0100Theme
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -277,6 +281,56 @@ fun Tugas4() {
                     }
 
                     Spacer(modifier = Modifier.weight(1f))
+
+                    Button(
+                        onClick = {
+                            val skills = mutableListOf<String>()
+                            if (skillMemasak) skills.add("Memasak")
+                            if (skillPelayanan) skills.add("Pelayanan")
+                            if (skillLogistik) skills.add("Logistik")
+                            val skillStr = if (skills.isEmpty()) "Tidak ada" else skills.joinToString(", ")
+
+                            val message = """
+                                Nama : $namaDepan $namaBelakang
+                                Email : $email
+                                Tgl Lahir : $tglLahir
+                                Experience : $experience
+                                Skill : $skillStr
+                            """.trimIndent()
+
+                            coroutineScope.launch {
+                                // Hapus snackbar yang sedang tampil (jika ada)
+                                snackbarHostState.currentSnackbarData?.dismiss()
+
+                                // Tampilkan snackbar baru dengan durasi tidak terbatas (agar bisa dicancel manual dalam 5 detik)
+                                val job = launch {
+                                    snackbarHostState.showSnackbar(
+                                        message = message,
+                                        duration = SnackbarDuration.Indefinite
+                                    )
+                                }
+
+                                // Tunggu 5 detik lalu hilangkan
+                                delay(5000)
+                                job.cancel()
+                            }
+                        },
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .height(50.dp),
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = colorResource(id = R.color.lph_red),
+                            contentColor = colorResource(id = R.color.white)
+                        ),
+                        shape = RoundedCornerShape(16.dp)
+                    ) {
+                        Text(
+                            text = stringResource(id = R.string.proceed),
+                            fontWeight = FontWeight.ExtraBold,
+                            fontSize = 16.sp
+                        )
+                    }
+                    Spacer(modifier = Modifier.height(32.dp))
 
                     // Dialog DatePicker
                     if (showDatePicker) {
